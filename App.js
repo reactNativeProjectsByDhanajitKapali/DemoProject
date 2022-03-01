@@ -1,5 +1,12 @@
 import React from 'react';
-import {Button, Text, View, SafeAreaView, StyleSheet} from 'react-native';
+import {
+  Button,
+  Text,
+  View,
+  SafeAreaView,
+  StyleSheet,
+  TextInput,
+} from 'react-native';
 import Login from './components/Login';
 
 // const App = () => {
@@ -15,19 +22,22 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: 'Some class state',
+      name: '',
     };
   }
 
   render() {
     return (
       <SafeAreaView>
-        <Text style={{color: 'red'}}>Inline Style</Text>
-        <Text style={[styles.colors, styles.fonts]}>StyleSheet Style</Text>
+        <TextInput
+          placeholder="Enter Your name"
+          onChangeText={e => {
+            this.setState({name: e});
+          }}></TextInput>
         <Button
-          title="Change State"
+          title="Submit"
           onPress={() => {
-            this.setState({data: 'State Changed'});
+            alert(this.state.name);
           }}
         />
       </SafeAreaView>
