@@ -8,52 +8,27 @@ import {
   TextInput,
 } from 'react-native';
 import Login from './components/Login';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-// const App = () => {
-//   return (
-//     <View>
-//       {/* <Text>The Demo Project</Text> */}
-//       <Login data={'Some data'} />
-//     </View>
-//   );
-// };
-
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      name: '',
-    };
-  }
-
-  render() {
-    return (
-      <SafeAreaView>
-        <TextInput
-          placeholder="Enter Your name"
-          onChangeText={e => {
-            this.setState({name: e});
-          }}></TextInput>
-        <Button
-          title="Submit"
-          onPress={() => {
-            alert(this.state.name);
-          }}
-        />
-      </SafeAreaView>
-    );
-  }
+function HomeScreen() {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Home Screen</Text>
+    </View>
+  );
 }
 
-const styles = StyleSheet.create({
-  colors: {
-    color: 'red',
-    backgroundColor: 'green',
-  },
-  fonts: {
-    fontSize: 30,
-    fontWeight: 'bold',
-  },
-});
+const Stack = createNativeStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 export default App;
