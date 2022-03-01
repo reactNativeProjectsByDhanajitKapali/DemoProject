@@ -6,7 +6,7 @@ const App = () => {
   return (
     <View>
       {/* <Text>The Demo Project</Text> */}
-      <Login />
+      <Login data={'Some data'} />
     </View>
   );
 };
