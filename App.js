@@ -1,34 +1,20 @@
 import React from 'react';
-import {
-  Button,
-  Text,
-  View,
-  SafeAreaView,
-  StyleSheet,
-  TextInput,
-} from 'react-native';
-import Login from './components/Login';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Text, View, StyleSheet} from 'react-native';
 
-function HomeScreen() {
+const App = () => {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Home Screen</Text>
+    <View style={styles.body}>
+      <Text>Programming with Mash</Text>
     </View>
   );
-}
+};
 
-const Stack = createNativeStackNavigator();
-
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+const styles = StyleSheet.create({
+  body: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default App;
